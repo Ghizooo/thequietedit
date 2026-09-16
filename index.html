@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+
+  <title>Your Beauty Edit — The Quiet Edit</title>
+  <meta name="description" content="Curated beauty finds, routines & tiny upgrades for women who believe beauty gets better with time." />
+
+  <meta property="og:title" content="Your Beauty Edit — The Quiet Edit" />
+  <meta property="og:description" content="Less noise. Better rituals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='14' fill='%23fbf7f1'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Georgia,Times New Roman,serif' font-size='26' fill='%23171717' letter-spacing='2'%3ETQ%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ivory:#fbf7f1;
+      --paper:#ffffff;
+      --stone:#e9e1d5;
+      --taupe:#b9ab98;
+      --ink:#221f1c;
+      --muted:#4a4645;
+      --soft:#8a8078;
+      --accent:#2a2520;
+      --live-dot:#8a6d3b;
+
+      --champagne: rgba(241,230,211,.55);
+      --blush: rgba(230,210,204,.30);
+      --warmstone: rgba(233,225,213,.32);
+      --coolpaper: rgba(255,255,255,.72);
+
+      --radius:20px;
+      --radius2:16px;
+
+      --serif: "Fraunces", ui-serif, Georgia, serif;
+      --sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(241,230,211,.55), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(230,210,204,.35), transparent 55%),
+        linear-gradient(180deg, var(--ivory), #fff 60%);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{color:inherit}
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 18px 16px 72px; }
+
+    #top{ display:block; height:0; line-height:0; }
+
+    .progress{ position: fixed; top:0; left:0; height:3px; width:100%; z-index:50; background:transparent; }
+    .progress > span{
+      display:block; height:3px; width:0%;
+      background: linear-gradient(90deg, rgba(185,171,152,.35), rgba(42,37,32,.65));
+    }
+
+    .topbar{
+      position: sticky; top:0; z-index:40; margin-top:12px;
+      border:1px solid var(--stone);
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(8px);
+      border-radius:999px;
+      padding:10px 12px;
+      transition: box-shadow .2s ease;
+    }
+    .topbar-inner{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+    .brand-mini{ display:flex; align-items:center; gap:10px; min-width:190px; }
+    .mark{
+      width:32px; height:32px; border-radius:999px;
+      border:1px solid rgba(185,171,152,.55);
+      background: linear-gradient(180deg,#fff, #fffaf2);
+      display:flex; align-items:center; justify-content:center;
+      font-family: var(--serif); letter-spacing:.12em; font-size:14px; color:var(--accent);
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .mark img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .brandname{
+      font-family: var(--sans); letter-spacing:.18em; text-transform:uppercase;
+      font-size:12px; color:var(--soft); white-space:nowrap;
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      font-size:12px;
+      color:var(--soft);
+      letter-spacing:.06em;
+
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      max-width: 100%;
+    }
+    nav::-webkit-scrollbar{ display:none; }
+    nav a{
+      text-decoration:none;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition: background .15s ease, border-color .15s ease, color .15s ease;
+      white-space:nowrap;
+      flex:0 0 auto;
+    }
+    nav a:hover{ background: rgba(255,247,234,.7); border-color: rgba(185,171,152,.35); color:#333; }
+    nav a.active{ background: rgba(233,225,213,.65); border-color: rgba(185,171,152,.55); color: var(--accent); }
+
+    header.hero{
+      margin-top:16px; border:1px solid var(--stone); border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.62));
+      padding:32px 22px 22px; position:relative; overflow:hidden;
+    }
+    header.hero:before{
+      content:""; position:absolute; inset:-40px -40px auto -40px; height:200px;
+      background: radial-gradient(circle at 25% 25%, rgba(185,171,152,.35), transparent 62%),
+                  radial-gradient(circle at 75% 35%, rgba(222,200,190,.24), transparent 58%);
+      pointer-events:none; filter: blur(6px);
+    }
+    .hero-kicker{ position:relative; letter-spacing:.28em; text-transform:uppercase; font-size:12px; color:var(--soft); margin:0 0 16px; }
+    .hero-title{
+      position:relative; margin:0 0 6px; font-family: var(--serif); font-weight:500;
+      font-size:clamp(32px,5vw,46px); line-height:1.12; letter-spacing:-.01em;
+    }
+    .hero-flourish{
+      position:relative; margin:0 0 18px; font-family: var(--serif); font-style:italic;
+      font-weight:400; color: rgba(154,132,107,.9); font-size:19px;
+    }
+    .hero-desc{ position:relative; max-width:520px; color:var(--muted); font-size:16px; line-height:1.75; margin:0 0 8px; }
+    .hero-micro{ position:relative; color:var(--soft); font-size:13px; margin:0; }
+    .hero-disclosure{
+      position:relative; margin:16px 0 0; font-size:12px; color:var(--soft);
+      border-top:1px dashed rgba(185,171,152,.45); padding-top:10px;
+    }
+
+    .divider{ display:flex; align-items:center; justify-content:center; margin:28px 0; color: rgba(183,148,95,.55); font-size:14px; }
+    .divider::before,.divider::after{ content:""; flex:1; height:1px; background: linear-gradient(90deg, transparent, var(--stone), transparent); }
+    .divider span{ padding:0 16px; }
+
+    .grid{ margin-top:18px; display:grid; grid-template-columns:1fr; gap:14px; }
+    @media(min-width:900px){ .grid{ grid-template-columns:1fr 1fr; } }
+
+    section.territory{
+      border:1px solid var(--stone); border-radius:var(--radius); padding:20px;
+      background: var(--paper); position:relative; scroll-margin-top:100px;
+    }
+    section.territory[data-tone="champagne"]{ background: linear-gradient(180deg, var(--coolpaper), var(--champagne)); }
+    section.territory[data-tone="blush"]{ background: linear-gradient(180deg, var(--coolpaper), var(--blush)); }
+    section.territory[data-tone="stone"]{ background: linear-gradient(180deg, var(--coolpaper), var(--warmstone)); }
+
+    .section-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom: 12px;
+    }
+    .section-text{ min-width: 0; }
+    .section-title{
+      margin:0 0 8px; letter-spacing:.14em; text-transform:uppercase; font-size:13px;
+      color:#3a342d; display:flex; align-items:center; gap:10px; font-family: var(--sans);
+    }
+    .numchip{
+      width:20px; height:20px; border-radius:50%; flex:0 0 auto;
+      border:1px solid rgba(185,171,152,.6);
+      background: rgba(255,255,255,.7);
+      display:flex; align-items:center; justify-content:center;
+      font-family: var(--sans); font-size:9px; letter-spacing:0; color: var(--accent);
+    }
+    .section-note{ margin:0; color:var(--soft); font-size:13.5px; line-height:1.7; max-width:60ch; }
+
+    .section-art-wrap{
+      width: 128px;
+      height: 78px;
+      border-radius: 14px;
+      border: 1px solid rgba(185,171,152,.55);
+      background: #fff;
+      overflow:hidden;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 22px -18px rgba(0,0,0,.22);
+    }
+    .section-art-wrap img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition: transform .5s ease;
+    }
+    .section-art-wrap:hover img{ transform: scale(1.05); }
+    @media (max-width:520px){
+      .section-art-wrap{ width: 104px; height: 68px; }
+    }
+
+    .card{
+      border:1px solid rgba(185,171,152,.5); border-radius:var(--radius2);
+      padding:16px 16px 14px; background: linear-gradient(180deg,#fff,#fffaf2);
+      display:flex; flex-direction:column; gap:10px; margin-top:12px;
+      transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+    }
+    .card:first-of-type{ margin-top:0; }
+    .card:hover{ border-color: rgba(183,148,95,.55); transform: translateY(-2px); box-shadow: 0 12px 26px -18px rgba(90,70,40,.35); }
+    .card.is-live{ border-color: rgba(42,37,32,.5); box-shadow: 0 8px 20px rgba(23,23,23,.06); }
+
+    .cardhead{ display:flex; align-items:center; gap:12px; }
+    .mono{
+      width:40px; height:40px; flex:0 0 auto;
+      border-radius:999px;
+      border:1px solid rgba(185,171,152,.55);
+      background: rgba(255,255,255,.75);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      font-family: var(--serif);
+      font-weight:500;
+      color: rgba(154,132,107,.92);
+      font-size: 15px;
+      letter-spacing:.02em;
+    }
+    .mono img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition: transform .4s ease;
+    }
+    .card:hover .mono img{ transform: scale(1.08); }
+    .cardhead-text{ min-width:0; flex:1 1 auto; }
+
+    .name-row{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .name{ margin:0; font-family: var(--serif); font-weight:500; font-size:18px; }
+
+    .desc{ margin:0; color:var(--muted); font-size:14.5px; line-height:1.7; }
+
+    .row{ display:flex; align-items:center; justify-content:flex-start; gap:12px; flex-wrap:wrap; }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px;
+      border:1px solid rgba(183,148,95,.45); background:#fff; text-decoration:none;
+      font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink);
+      transition: background .15s ease, border-color .15s ease, transform .06s ease, box-shadow .2s ease;
+      user-select:none;
+    }
+    .btn:hover{ background: rgba(183,148,95,.10); border-color: rgba(183,148,95,.75); box-shadow: 0 6px 16px -10px rgba(90,70,40,.5); }
+    .btn:active{ transform: translateY(1px); }
+    .btn[aria-disabled="true"]{
+      opacity:.55;
+      cursor:not-allowed;
+      pointer-events:none;
+      border-style:dashed;
+      background: rgba(255,255,255,.7);
+    }
+    .live-dot{
+      width:6px; height:6px; border-radius:50%;
+      background: var(--live-dot);
+      flex:0 0 auto;
+      box-shadow: 0 0 0 3px rgba(138,109,59,.14);
+    }
+
+    .section-signoff{
+      margin-top:16px; padding-top:14px;
+      border-top:1px dashed rgba(185,171,152,.35);
+      font-family: var(--serif); font-style:italic; color:var(--soft); font-size:13px;
+    }
+
+    .empty-shelf{
+      border:1px dashed var(--taupe); border-radius:var(--radius2); padding:28px 20px;
+      text-align:center; color:var(--soft); background: rgba(183,148,95,.04);
+    }
+    .empty-shelf p{ margin:0 0 6px; font-size:14px; }
+    .empty-shelf .empty-sub{ font-size:12.5px; color:var(--taupe); }
+
+    .signoff{
+      text-align:center; font-family: var(--serif); font-style:italic; color:var(--soft);
+      font-size:15px; margin:44px 0 6px;
+    }
+
+    footer{
+      margin-top:18px; border:1px solid var(--stone); border-radius:var(--radius);
+      background: rgba(255,255,255,.78); padding:16px 18px;
+    }
+    details{ color:var(--soft); }
+    summary{
+      cursor:pointer; list-style:none; letter-spacing:.10em; text-transform:uppercase;
+      font-size:12px; color:#4a4a4a; padding:8px 0; outline:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .fine{ margin:8px 0 10px; font-size:12.5px; line-height:1.75; color:var(--soft); max-width:640px; }
+    .fine strong{ color:var(--muted); }
+    .updated{
+      margin:10px 0 0; font-size:11.5px; color:var(--soft);
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    }
+    .updated a{ text-decoration:none; border-bottom:1px solid rgba(183,148,95,.55); cursor:pointer; }
+
+    .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible{ opacity:1; transform:none; }
+
+    :focus-visible{ outline:2px solid rgba(183,148,95,.9); outline-offset:2px; border-radius:10px; }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .reveal{ opacity:1; transform:none; transition:none; }
+      .card,.btn,.mono img,.section-art-wrap img{ transition:none; }
+      .card:hover{ transform:none; }
+    }
+
+    @media (max-width:420px){
+      .hero-title{ font-size:32px; }
+      .hero-flourish{ font-size:17px; }
+    }
+
+    @media (max-width:380px){
+      .wrap{ padding:14px 12px 60px; }
+      .topbar{ padding:8px 10px; }
+      .brandname{ font-size:11px; letter-spacing:.14em; }
+      nav{ font-size:11px; gap:6px; }
+      nav a{ padding:6px 8px; }
+      header.hero{ padding:24px 16px 16px; }
+      .hero-title{ font-size:28px; }
+      .hero-flourish{ font-size:15px; }
+      .hero-desc{ font-size:14.5px; }
+      section.territory{ padding:16px; }
+      .card{ padding:14px; }
+      .section-art-wrap{ width: 96px; height: 64px; }
+      .mono{ width:36px; height:36px; }
+    }
+
+    @media (min-width:600px) and (max-width:899px){
+      header.hero{ padding:36px 26px 24px; }
+    }
+
+    @media (min-width:900px) and (max-width:1199px){
+      .wrap{ max-width:920px; }
+    }
+
+    @media (min-width:1440px){
+      .wrap{ max-width:1080px; }
+      body{ font-size:16.5px; }
+      .hero-title{ font-size:50px; }
+      .section-art-wrap{ width: 140px; height: 86px; }
+    }
+
+    @media (min-width:1920px){
+      .wrap{ max-width:1180px; }
+    }
+
+    @media (hover:none){
+      .card:hover{ transform:none; box-shadow:none; border-color:rgba(185,171,152,.5); }
+      .btn:hover{ background:#fff; border-color:rgba(183,148,95,.45); box-shadow:none; }
+      nav a:hover{ background:transparent; border-color:transparent; color:var(--soft); }
+      .section-art-wrap:hover img, .card:hover .mono img{ transform:none; }
+    }
+
+    @media (pointer:coarse){
+      .btn{ padding:12px 18px; }
+      nav a{ padding:8px 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <div class="wrap">
+
+    <span id="top" aria-hidden="true"></span>
+
+    <div class="topbar" role="navigation" aria-label="Territory navigation">
+      <div class="topbar-inner">
+        <div class="brand-mini">
+          <div class="mark" aria-hidden="true">
+            <img src="https://i.postimg.cc/d3v06Wrr/profile-centered-face.jpg" alt=""
+                 onerror="this.onerror=null; if(this.parentElement){this.parentElement.textContent='TQ';}" />
+          </div>
+          <div class="brandname">The Quiet Edit</div>
+        </div>
+        <nav aria-label="Sections">
+          <a href="#skin" data-nav="skin">Skin</a>
+          <a href="#aging" data-nav="aging">Aging</a>
+          <a href="#hair" data-nav="hair">Hair</a>
+          <a href="#nails" data-nav="nails">Nails</a>
+          <a href="#picks" data-nav="picks">Picks</a>
+        </nav>
+      </div>
+    </div>
+
+    <header class="hero reveal">
+      <p class="hero-kicker">Your Beauty Edit</p>
+      <h1 class="hero-title">What I actually<br>keep coming back to.</h1>
+      <p class="hero-flourish">quietly, beautifully.</p>
+      <p class="hero-desc">Curated beauty finds, routines &amp; tiny upgrades for women who believe beauty gets better with time.</p>
+      <p class="hero-micro">Less noise. Better rituals.</p>
+      <p class="hero-disclosure">Disclosure: Some links on this page are affiliate links. If you choose to purchase, I may earn a commission at no extra cost to you.</p>
+    </header>
+
+    <div class="divider" aria-hidden="true"><span>✦</span></div>
+
+    <!--
+      ⚠ QA / PREVIEW BUILD — NOT the share-ready version.
+
+      All six "data-vendor" values below use TEMPORARY DEMO SLUGS
+      (lowercase product names) so every button renders fully "live"
+      for visual/interaction testing: hover, active state, is-live
+      styling, and the live-dot indicator all work end-to-end.
+
+      Before sharing this page publicly:
+      1) Replace each demo vendor slug with the REAL ClickBank vendor
+         slug once available.
+      2) For PrimeBiome, Neotonics, Kerassentials specifically — if
+         ClickBank affiliate approval has NOT yet been granted at
+         share-time, re-disable those three buttons (aria-disabled="true"
+         + remove href) so no visitor is sent to a non-functional or
+         unauthorized link. Do not leave demo links live on a shared page.
+    -->
+
+    <div class="grid">
+
+      <section class="territory reveal" id="skin" data-tone="champagne" data-section="skin">
+        <div class="section-head">
+          <div class="section-text">
+            <h2 class="section-title"><span class="numchip" aria-hidden="true">01</span>Skin Wellness</h2>
+            <p class="section-note">A gentle, "less-but-better" approach. Quiet consistency over dramatic promises.</p>
+          </div>
+          <div class="section-art-wrap">
+            <img loading="lazy" alt=""
+              src="https://i.postimg.cc/Bb13f2s9/SKIN-WELLNESS.jpg"
+              onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27640%27 height=%27420%27%3E%3Crect width=%27640%27 height=%27420%27 fill=%27%23f1e6d3%27/%3E%3C/svg%3E';" />
+          </div>
+        </div>
+
+        <div class="card" data-product="primebiome">
+          <div class="cardhead">
+            <div class="mono" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=120&q=80" alt=""
+                   onerror="this.onerror=null; if(this.parentElement){this.parentElement.textContent='P';}" />
+            </div>
+            <div class="cardhead-text">
+              <div class="name-row">
+                <p class="name">PrimeBiome</p>
+              </div>
+            </div>
+          </div>
+          <p class="desc">A quiet daily ritual, for the days you want less noise, more balance.</p>
+          <div class="row">
+            <a class="btn hop" href="#" data-vendor="primebiome">Take a closer look →</a>
+          </div>
+        </div>
+
+        <div class="card" data-product="neotonics">
+          <div class="cardhead">
+            <div class="mono" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=120&q=80" alt=""
+                   onerror="this.onerror=null; if(this.parentElement){this.parentElement.textContent='N';}" />
+            </div>
+            <div class="cardhead-text">
+              <div class="name-row">
+                <p class="name">Neotonics</p>
+              </div>
+            </div>
+          </div>
+          <p class="desc">A secondary option in the same lane — kept in rotation for variety, never for urgency.</p>
+          <div class="row">
+            <a class="btn hop" href="#" data-vendor="neotonics">Take a closer look →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="territory reveal" id="aging" data-tone="blush" data-section="aging">
+        <div class="section-head">
+          <div class="section-text">
+            <h2 class="section-title"><span class="numchip" aria-hidden="true">02</span>Aging Gracefully</h2>
+            <p class="section-note">Polished, rested, taken care of — without chasing a different face.</p>
+          </div>
+          <div class="section-art-wrap">
+            <img loading="lazy" alt=""
+              src="https://i.postimg.cc/hjt46Jhk/AGING-GRACEFULLY-1.jpg"
+              onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27640%27 height=%27420%27%3E%3Crect width=%27640%27 height=%27420%27 fill=%27%23e6d2cc%27/%3E%3C/svg%3E';" />
+          </div>
+        </div>
+
+        <div class="card" data-product="synevra">
+          <div class="cardhead">
+            <div class="mono" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=120&q=80" alt=""
+                   onerror="this.onerror=null; if(this.parentElement){this.parentElement.textContent='S';}" />
+            </div>
+            <div class="cardhead-text">
+              <div class="name-row">
+                <p class="name">Synevra UltraLift</p>
+              </div>
+            </div>
+          </div>
+          <p class="desc">An evening step for skin that's asking for a little more attention — framed as a ritual, not a rescue.</p>
+          <div class="row">
+            <a class="btn hop" href="#" data-vendor="synevra">Take a closer look →</a>
+          </div>
+        </div>
+
+        <p class="section-signoff">— the kind of upgrade that asks for patience, not urgency.</p>
+      </section>
+
+      <section class="territory reveal" id="hair" data-tone="stone" data-section="hair">
+        <div class="section-head">
+          <div class="section-text">
+            <h2 class="section-title"><span class="numchip" aria-hidden="true">03</span>Hair &amp; Scalp</h2>
+            <p class="section-note">For when your hair wants a softer routine — less friction, more consistency.</p>
+          </div>
+          <div class="section-art-wrap">
+            <img loading="lazy" alt=""
+              src="https://i.postimg.cc/QCRXF0mP/HAIR-SCALP.jpg"
+              onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27640%27 height=%27420%27%3E%3Crect width=%27640%27 height=%27420%27 fill=%27%23e9e1d5%27/%3E%3C/svg%3E';" />
+          </div>
+        </div>
+
+        <div class="card" data-product="foliprime">
+          <div class="cardhead">
+            <div class="mono" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=120&q=80" alt=""
+                   onerror="this.onerror=null; if(this.parentElement){this.parentElement.textContent='F';}" />
+            </div>
+            <div class="cardhead-text">
+              <div class="name-row">
+                <p class="name">FoliPrime</p>
+              </div>
+            </div>
+          </div>
+          <p class="desc">A softer approach to hair that's lost some of its ease — small, consistent, unhurried.</p>
+          <div class="row">
+            <a class="btn hop" href="#" data-vendor="foliprime">Take a closer look →</a>
+          </div>
+        </div>
+
+        <p class="section-signoff">— small, steady, and easy to keep up with.</p>
+      </section>
+
+      <section class="territory reveal" id="nails" data-tone="champagne" data-section="nails">
+        <div class="section-head">
+          <div class="section-text">
+            <h2 class="section-title"><span class="numchip" aria-hidden="true">04</span>Nail &amp; Foot Care</h2>
+            <p class="section-note">Comfort, confidence, and the small details you notice when life slows down.</p>
+          </div>
+          <div class="section-art-wrap">
+            <img loading="lazy" alt=""
+              src="https://i.postimg.cc/50y1pZRM/NAIL-FOOT-CARE.jpg"
+              onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27640%27 height=%27420%27%3E%3Crect width=%27640%27 height=%27420%27 fill=%27%23f1e6d3%27/%3E%3C/svg%3E';" />
+          </div>
+        </div>
+
+        <div class="card" data-product="kerassentials">
+          <div class="cardhead">
+            <div class="mono" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=120&q=80" alt=""
+                   onerror="this.onerror=null; if(this.parentElement){this.parentElement.textContent='K';}" />
+            </div>
+            <div class="cardhead-text">
+              <div class="name-row">
+                <p class="name">Kerassentials</p>
+              </div>
+            </div>
+          </div>
+          <p class="desc">A quiet essential for feet and nails that deserve the same care as everything else.</p>
+          <div class="row">
+            <a class="btn hop" href="#" data-vendor="kerassentials">Take a closer look →</a>
+          </div>
+        </div>
+
+        <div class="card" data-product="appanail">
+          <div class="cardhead">
+            <div class="mono" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=120&q=80" alt=""
+                   onerror="this.onerror=null; if(this.parentElement){this.parentElement.textContent='A';}" />
+            </div>
+            <div class="cardhead-text">
+              <div class="name-row">
+                <p class="name">AppaNail</p>
+              </div>
+            </div>
+          </div>
+          <p class="desc">A second option in the same territory — here for choice, never for pressure.</p>
+          <div class="row">
+            <a class="btn hop" href="#" data-vendor="appanail">Take a closer look →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="territory reveal" id="picks" data-tone="blush" data-section="picks">
+        <div class="section-head">
+          <div class="section-text">
+            <h2 class="section-title"><span class="numchip" aria-hidden="true">05</span>My Beauty Picks</h2>
+            <p class="section-note">A rotating shelf of small things I've actually kept using.</p>
+          </div>
+          <div class="section-art-wrap">
+            <img loading="lazy" alt=""
+              src="https://i.postimg.cc/SRwynDVK/MY-BEAUTY-PICKS.jpg"
+              onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27640%27 height=%27420%27%3E%3Crect width=%27640%27 height=%27420%27 fill=%27%23e6d2cc%27/%3E%3C/svg%3E';" />
+          </div>
+        </div>
+
+        <div class="empty-shelf">
+          <p>New picks added quietly, from time to time.</p>
+          <p class="empty-sub">No noise. No rush. Just what's worth keeping.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <p class="signoff reveal">— updated quietly, as I find things worth keeping.</p>
+
+    <footer>
+      <details>
+        <summary>How this page works</summary>
+        <p class="fine"><strong>Affiliate disclosure:</strong> This page contains affiliate links. If you choose to purchase through them, I may earn a small commission at no extra cost to you. I only share what I'd genuinely recommend.</p>
+        <p class="fine"><strong>Wellness note:</strong> This page is for informational purposes only and is not medical advice. Always consider your personal situation and consult a qualified professional when appropriate.</p>
+      </details>
+      <p class="updated">
+        <span>Last updated: <span id="updated"></span></span>
+        <a href="#top">Back to top</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var AFFILIATE = "moniim";
+      var DEFAULT_TID = "tiktok_bio";
+
+      var params = new URLSearchParams(window.location.search);
+      var tid = params.get("tid") || DEFAULT_TID;
+
+      function isPlaceholderVendor(v){ return !v || v.indexOf("VENDOR_") === 0; }
+
+      function buildHoplink(vendor, tid){
+        return "https://hop.clickbank.net/?affiliate=" + encodeURIComponent(AFFILIATE)
+          + "&vendor=" + encodeURIComponent(vendor.toLowerCase())
+          + "&tid=" + encodeURIComponent(tid);
+      }
+
+      document.querySelectorAll("a.hop").forEach(function (a) {
+        var vendor = (a.getAttribute("data-vendor") || "").trim();
+
+        if (isPlaceholderVendor(vendor)) {
+          a.setAttribute("href", "#");
+          a.setAttribute("aria-disabled", "true");
+          a.removeAttribute("target");
+          a.removeAttribute("rel");
+          return;
+        }
+
+        a.removeAttribute("aria-disabled");
+        a.setAttribute("href", buildHoplink(vendor, tid));
+        a.setAttribute("rel", "nofollow sponsored noopener");
+        a.setAttribute("target", "_blank");
+
+        var dot = document.createElement("span");
+        dot.className = "live-dot";
+        dot.setAttribute("aria-hidden", "true");
+        a.prepend(dot);
+
+        var card = a.closest(".card");
+        if (card) card.classList.add("is-live");
+      });
+
+      var d = new Date();
+      var el = document.getElementById("updated");
+      if (el) el.textContent = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+
+      var navLinks = Array.from(document.querySelectorAll("nav a[data-nav]"));
+      var sections = Array.from(document.querySelectorAll("section.territory[data-section]"));
+      function setActive(id){
+        navLinks.forEach(function(l){
+          l.classList.toggle("active", l.getAttribute("data-nav") === id);
+        });
+      }
+
+      var reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var ioNav = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting) {
+              var id = e.target.getAttribute("data-section");
+              if (id) setActive(id);
+            }
+          });
+        }, { threshold: 0.35 });
+        sections.forEach(function(s){ ioNav.observe(s); });
+
+        var ioReveal = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              ioReveal.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        reveals.forEach(function(el){ ioReveal.observe(el); });
+      } else {
+        reveals.forEach(function(el){ el.classList.add("is-visible"); });
+      }
+
+      var bar = document.getElementById("progressBar");
+      function updateProgress(){
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var p = docHeight > 0 ? Math.min(1, scrollTop / docHeight) : 0;
+        if (bar) bar.style.width = (p * 100).toFixed(1) + "%";
+      }
+      updateProgress();
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      var topbar = document.querySelector(".topbar");
+      if(topbar){
+        window.addEventListener("scroll", function(){
+          topbar.style.boxShadow = window.scrollY > 10 ? "0 8px 20px -14px rgba(0,0,0,.22)" : "none";
+        }, { passive:true });
+      }
+
+      var backToTop = document.querySelector('a[href="#top"]');
+      if (backToTop) {
+        backToTop.addEventListener("click", function (e) {
+          e.preventDefault();
+          var prefersReduced = window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+          if (history.replaceState) { history.replaceState(null, "", "#top"); }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
